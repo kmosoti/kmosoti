@@ -14,7 +14,7 @@ I'm a tech enthusiast who loves automating life's tedious tasks and building fun
 
 ## Let's Connect
 
-- [LinkedIn](https://www.linkedin.com/in/kennedymosoti/)
+- **LinkedIn:** [kennedymosoti](https://www.linkedin.com/in/kennedymosoti/)
 - **Discord:** cybermaasai
 
 ---
