@@ -7,7 +7,7 @@ I'm a tech enthusiast who loves automating life's tedious tasks and building fun
 ## What I’m Up To
 
 - 🤖 **Building Discord Bots:** Bringing extra functionality and fun to online communities.
-- ⚙️ **Automating Life:** Turning repetitive tasks into seamless, automated workflows.
+- ⚙️ **Automating Life:** Turning repetitive tasks into seamless, automated workflows. Learning Terraform and SaltStack
 - 💡 **Experimenting:** Tinkering with new ideas to enhance my digital lifestyle.
 
 ---
