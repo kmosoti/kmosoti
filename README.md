@@ -1,5 +1,3 @@
-<img src="./assets/profile-banner.webp" alt="Dark technical field journal background" width="100%" height="200">
-
 # Kennedy Mosoti
 
 **Observability Platform Engineer · Infrastructure Automation · AI Tooling Experiments**  
