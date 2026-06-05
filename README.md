@@ -1,4 +1,4 @@
-<div style="background-image: url('./assets/profile-banner.webp'); background-size: cover; background-position: center; height: 200px; margin-bottom: 30px; border-radius: 8px;"></div>
+<img src="./assets/profile-banner.webp" alt="Dark technical field journal background" width="100%" height="200">
 
 # Kennedy Mosoti
 
