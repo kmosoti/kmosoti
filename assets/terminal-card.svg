@@ -1,0 +1,13 @@
+<svg width="1200" height="430" viewBox="0 0 1200 430" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="430" rx="28" fill="#0d1117"/>
+  <rect x="55" y="48" width="1090" height="334" rx="18" fill="#020617" stroke="#334155"/>
+  <circle cx="92" cy="82" r="8" fill="#f87171"/>
+  <circle cx="120" cy="82" r="8" fill="#fbbf24"/>
+  <circle cx="148" cy="82" r="8" fill="#34d399"/>
+  <text x="72" y="135" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22">$ whoami</text>
+  <text x="72" y="174" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22">builder of small systems that make large systems less absurd</text>
+  <text x="72" y="226" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22">$ current_obsessions --compact</text>
+  <text x="72" y="265" fill="#67e8f9" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22">salt states · splunk internals · terraform labs · agentic runtimes · readable tools</text>
+  <text x="72" y="317" fill="#94a3b8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22">$ rule</text>
+  <text x="72" y="356" fill="#c4b5fd" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="22">make it observable before you trust it.</text>
+</svg>

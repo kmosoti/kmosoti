@@ -1,71 +1,54 @@
-# Kennedy Mosoti
-
-**Automation and Observability Engineer**
-
-I build systems that reduce manual work, improve operational clarity, and make infrastructure easier to reason about.
-
-My strongest areas are Python, Salt, Splunk, AWS, and Terraform. I am especially interested in automation design, observability platforms, infrastructure workflows, and the growing role of agentic AI in engineering work.
+<p align="center">
+  <img src="./assets/hero.svg" alt="Kennedy Mosoti profile hero" />
+</p>
 
 ---
 
-## Core Focus
+I like systems that explain themselves.
 
-### Automation
-- Python-first tooling and workflow automation
-- Configuration management and orchestration design
-- Reusable infrastructure patterns and internal engineering utilities
+Most of my work circles the same obsession from different angles:
 
-### Observability
-- Logging and monitoring platforms
-- Dashboard design and operational visibility
-- Capacity-minded thinking and systems analysis
+```text
+messy operations → observable systems
+manual toil      → automation
+tribal knowledge → reusable tooling
+AI chaos         → deterministic interfaces
+```
 
-### Infrastructure
-- AWS-based infrastructure work
-- Terraform modules and environment composition
-- Linux systems and service-oriented engineering
+I work mostly around Python, Salt, Splunk, AWS, Terraform, Linux, and whatever glue is necessary to make infrastructure less hostile to human reasoning.
 
-### AI-Assisted Engineering
-- Agentic workflows
-- Prompt and context management
-- Practical use of AI to accelerate technical work
+I’m not trying to make software feel magical.
 
----
+I’m trying to make the machine admit what it is doing.
 
-## Current Direction
-
-- Building cleaner automation patterns for infrastructure and platform operations
-- Deepening expertise in observability and platform engineering
-- Exploring AI-assisted workflows for engineering and personal tooling
-- Creating projects that combine useful systems design with clear interfaces
+<p align="center">
+  <img src="./assets/systems-map.svg" alt="visual map of engineering interests" />
+</p>
 
 ---
 
-## Selected Public Repositories
+### current fixations
 
-### [terraform-aws-splunk](https://github.com/kmosoti/terraform-aws-splunk)
-Infrastructure-oriented work combining Terraform, AWS, and automation patterns.
-
-### [terraform-aws-modular](https://github.com/kmosoti/terraform-aws-modular)
-Reusable infrastructure composition with a focus on modularity and maintainability.
-
-### [dave-discord-bot](https://github.com/kmosoti/dave-discord-bot)
-A Python-based Discord bot project built around modular design, external services, and structured logging.
-
-### [valentine-hannah](https://github.com/kmosoti/valentine-hannah)
-An interactive web project reflecting my interest in expressive front-end design and personal software.
+* automation that does not become another thing to babysit
+* observability as an interface for judgment
+* agentic tooling with guardrails, state, and recovery
+* infrastructure that stays legible after the original author leaves
+* personal knowledge systems that are useful to both humans and machines
 
 ---
 
-## Working Style
+<p align="center">
+  <img src="./assets/terminal-card.svg" alt="terminal style personal profile card" />
+</p>
 
-- I prefer building systems that are understandable, maintainable, and automatable
-- I like difficult technical problems when there is room to reason clearly and iterate
-- I treat AI as a practical engineering tool, not a replacement for judgment
+### public fragments
+
+* [`terraform-aws-splunk`](https://github.com/kmosoti/terraform-aws-splunk)
+* [`terraform-aws-modular`](https://github.com/kmosoti/terraform-aws-modular)
+* [`dave-discord-bot`](https://github.com/kmosoti/dave-discord-bot)
+* [`valentine-hannah`](https://github.com/kmosoti/valentine-hannah)
 
 ---
 
-## Connect
-
-- **LinkedIn:** [kennedymosoti](https://www.linkedin.com/in/kennedymosoti/)
-- **GitHub:** [@kmosoti](https://github.com/kmosoti)
+> make the system legible.
+> then automate the boring parts.

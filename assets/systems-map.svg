@@ -1,0 +1,25 @@
+<svg width="1200" height="560" viewBox="0 0 1200 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="560" rx="28" fill="#0d1117"/>
+  <text x="60" y="78" fill="#e5e7eb" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="34" font-weight="700">my engineering habitat</text>
+  <text x="62" y="112" fill="#9ca3af" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">less brand. more operating system.</text>
+
+  <g stroke="#475569" stroke-width="2">
+    <line x1="260" y1="270" x2="500" y2="180"/>
+    <line x1="260" y1="270" x2="505" y2="330"/>
+    <line x1="500" y1="180" x2="745" y2="180"/>
+    <line x1="505" y1="330" x2="745" y2="330"/>
+    <line x1="745" y1="180" x2="940" y2="270"/>
+    <line x1="745" y1="330" x2="940" y2="270"/>
+    <line x1="500" y1="180" x2="505" y2="330"/>
+    <line x1="745" y1="180" x2="745" y2="330"/>
+  </g>
+
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20">
+    <g><circle cx="260" cy="270" r="78" fill="#111827" stroke="#38bdf8" stroke-width="3"/><text x="214" y="264" fill="#e5e7eb">Python</text><text x="204" y="292" fill="#93c5fd">automation</text></g>
+    <g><circle cx="500" cy="180" r="78" fill="#111827" stroke="#a78bfa" stroke-width="3"/><text x="466" y="174" fill="#e5e7eb">Salt</text><text x="424" y="202" fill="#c4b5fd">orchestration</text></g>
+    <g><circle cx="505" cy="330" r="78" fill="#111827" stroke="#22c55e" stroke-width="3"/><text x="452" y="324" fill="#e5e7eb">Terraform</text><text x="469" y="352" fill="#bbf7d0">AWS</text></g>
+    <g><circle cx="745" cy="180" r="78" fill="#111827" stroke="#f472b6" stroke-width="3"/><text x="705" y="174" fill="#e5e7eb">Splunk</text><text x="680" y="202" fill="#fbcfe8">observability</text></g>
+    <g><circle cx="745" cy="330" r="78" fill="#111827" stroke="#f59e0b" stroke-width="3"/><text x="696" y="324" fill="#e5e7eb">FastAPI</text><text x="684" y="352" fill="#fde68a">interfaces</text></g>
+    <g><circle cx="940" cy="270" r="78" fill="#111827" stroke="#67e8f9" stroke-width="3"/><text x="890" y="264" fill="#e5e7eb">Agents</text><text x="872" y="292" fill="#a5f3fc">with judgment</text></g>
+  </g>
+</svg>
