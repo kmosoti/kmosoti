@@ -43,8 +43,6 @@ I work near the platform layer: Splunk, Logstash, SaltStack, Linux, RCA, remedia
 Prefer boring automation. Separate config from behavior. Do not confuse a spike with a system. Use evidence instead of polish. Build tools like black boxes.
 
 ## Links
-
-- Web field journal: https://kmosoti.github.io/kmosoti/
-- GitHub: https://github.com/kmosoti
+- My Cool Website: https://kmosoti.github.io/
 - Email: kennedy.rmosoti@gmail.com
 - Resume: [assets/kennedy-mosoti-resume.pdf](./assets/kennedy-mosoti-resume.pdf)
