@@ -1,54 +1,54 @@
 <p align="center">
-  <img src="./assets/hero.svg" alt="Kennedy Mosoti profile hero" />
+  <img src="./assets/profile-banner.webp" alt="Dark technical field journal background with faint diagrams, circuit traces, and worn paper texture">
 </p>
 
----
+# Kennedy Mosoti
 
-I like systems that explain themselves.
+**Observability Platform Engineer · Infrastructure Automation · AI Tooling Experiments**  
+Dallas-Fort Worth, TX
 
-Most of my work circles the same obsession from different angles:
+> Make the machine admit what it is doing.
 
-```text
-messy operations → observable systems
-manual toil      → automation
-tribal knowledge → reusable tooling
-AI chaos         → deterministic interfaces
-```
+I work near the platform layer: Splunk, Logstash, SaltStack, Linux, RCA, remediation, and DR readiness. The useful version of AI, to me, is not magic. It is better context, tighter tool contracts, and fewer vague handoffs.
 
-I work mostly around Python, Salt, Splunk, AWS, Terraform, Linux, and whatever glue is necessary to make infrastructure less hostile to human reasoning.
+## Current Signal
 
-I’m not trying to make software feel magical.
+| Operational mess | Preferred move |
+| --- | --- |
+| confusion | structure |
+| manual repetition | automation |
+| invisible state | telemetry |
+| vague process | deterministic interface |
 
-I’m trying to make the machine admit what it is doing.
+## Where I Am Useful
 
-<p align="center">
-  <img src="./assets/systems-map.svg" alt="visual map of engineering interests" />
-</p>
+- **Observability platforms:** Splunk Enterprise, search head clustering, indexer support, Logstash, Kafka ingestion workflows, RCA, and platform health analysis.
+- **Infrastructure automation:** Python, SaltStack, Bash, Git, Terraform, REST APIs, Linux, AWS, and release-oriented support.
+- **Resilience work:** cluster-manager/deployer parity, NAS bottleneck analysis, MEPC support, SHC readiness signals, and remediation tracking.
+- **AI-adjacent tooling:** AI code evaluation, local LLM experiments, RAG/reranking research, and explicit API/tool-wrapper ideas.
 
----
+## Recent Evidence
 
-### current fixations
+- Automated search-filter updates across **3,000+ Splunk roles** with Python.
+- Supported Salt-based Splunk automation across **100+ search heads**.
+- Worked Kafka-to-Logstash-to-Splunk ingestion paths, stale topic cleanup, and Logstash consumer remediation.
+- Investigated DR readiness gaps around CM/deployer workflows and NAS-based app parity bottlenecks.
+- Evaluated AI-generated Python, JavaScript, and SQL for correctness, maintainability, edge cases, and instruction following.
 
-* automation that does not become another thing to babysit
-* observability as an interface for judgment
-* agentic tooling with guardrails, state, and recovery
-* infrastructure that stays legible after the original author leaves
-* personal knowledge systems that are useful to both humans and machines
+## Notebook Shelf
 
----
+- **Engineering doctrine:** typed architecture notes, automation patterns, observability thinking, and agent workflow standards.
+- **Observability wrappers:** concepts for putting Splunk, Salt, VMware, and internal platform APIs behind deterministic tools.
+- **Terraform/AWS automation:** repeatable provisioning experiments with Python support scripts.
+- **Second brain:** markdown-first notes and diagrams connecting Splunk, Salt, DR, automation, and AI tooling.
 
-<p align="center">
-  <img src="./assets/terminal-card.svg" alt="terminal style personal profile card" />
-</p>
+## Operating Notes
 
-### public fragments
+Prefer boring automation. Separate config from behavior. Do not confuse a spike with a system. Use evidence instead of polish. Build tools like black boxes.
 
-* [`terraform-aws-splunk`](https://github.com/kmosoti/terraform-aws-splunk)
-* [`terraform-aws-modular`](https://github.com/kmosoti/terraform-aws-modular)
-* [`dave-discord-bot`](https://github.com/kmosoti/dave-discord-bot)
-* [`valentine-hannah`](https://github.com/kmosoti/valentine-hannah)
+## Links
 
----
-
-> make the system legible.
-> then automate the boring parts.
+- Web field journal: https://kmosoti.github.io/kmosoti/
+- GitHub: https://github.com/kmosoti
+- Email: kennedy.rmosoti@gmail.com
+- Resume: [assets/kennedy-mosoti-resume.pdf](./assets/kennedy-mosoti-resume.pdf)
