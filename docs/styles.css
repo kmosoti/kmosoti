@@ -128,7 +128,7 @@ nav a:focus-visible {
   background:
     linear-gradient(90deg, rgba(8, 7, 6, 0.94) 0%, rgba(8, 7, 6, 0.76) 42%, rgba(8, 7, 6, 0.2) 100%),
     linear-gradient(0deg, rgba(8, 7, 6, 0.93) 0%, transparent 38%),
-    url("assets/journal-field.webp") center / cover no-repeat;
+    url("assets/profile-banner.webp") center / cover no-repeat;
 }
 
 .hero::after {
