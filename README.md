@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="./assets/profile-banner.webp" alt="Dark technical field journal background with faint diagrams, circuit traces, and worn paper texture">
-</p>
+<div style="background-image: url('./assets/profile-banner.webp'); background-size: cover; background-position: center; height: 200px; margin-bottom: 30px; border-radius: 8px;"></div>
 
 # Kennedy Mosoti
 
