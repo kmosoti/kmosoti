@@ -1,68 +1,49 @@
-# Deploy This As Both Profile And Webpage
+# Profile And Website Deployment
 
-This folder is shaped for the single-repo version.
-
-## Option A: One Repo
-
-Use the special GitHub profile repository:
+This repository is the GitHub profile repository:
 
 ```text
 kmosoti/kmosoti
 ```
 
-Put these files at the root of that repo.
-
-- `README.md` becomes the GitHub profile README.
-- `docs/` becomes the GitHub Pages website.
-- `assets/` contains README assets.
-
-In GitHub Pages settings:
-
-```text
-Source: Deploy from a branch
-Branch: main
-Folder: /docs
-```
-
-The profile appears at:
+Its `README.md` renders at:
 
 ```text
 https://github.com/kmosoti
 ```
 
-The webpage appears at:
+The full website now lives in the separate root Pages repository:
 
 ```text
-https://kmosoti.github.io/kmosoti/
+kmosoti/kmosoti.github.io
 ```
 
-## Option B: Cleaner Root Website URL
-
-Use two repos:
-
-```text
-kmosoti/kmosoti          -> profile README
-kmosoti/kmosoti.github.io -> root website
-```
-
-Put `README.md` and `assets/` in `kmosoti/kmosoti`.
-
-Put the contents of `docs/` in `kmosoti/kmosoti.github.io`.
-
-The webpage then appears at:
+That site renders at:
 
 ```text
 https://kmosoti.github.io/
 ```
 
-If you use Option B, update the website link in `README.md` from:
+## Local Repos
+
+Expected local paths:
 
 ```text
-https://kmosoti.github.io/kmosoti/
+C:\Users\kenne\Documents\personal_directory\Projects\kmosoti
+C:\Users\kenne\Documents\personal_directory\Projects\kmosoti.github.io
 ```
 
-to:
+## Profile Repo Responsibilities
 
-```text
-https://kmosoti.github.io/
-```
+- Short front-door README.
+- Resume asset used by the profile.
+- Banner image used by the profile.
+- No generated notebook pages.
+
+## Website Repo Responsibilities
+
+- Static Systems Notebook website.
+- Markdown content source.
+- Python renderer.
+- Generated root HTML for branch-based Pages.
+- GitHub Actions workflow for `_site` artifact deployment.
