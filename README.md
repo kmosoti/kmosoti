@@ -1,9 +1,3 @@
-<p align="center">
-  <a href="https://kmosoti.github.io/">
-    <img src="./assets/profile-banner.webp" alt="Dark technical field journal background with faint diagrams, circuit traces, and worn paper texture">
-  </a>
-</p>
-
 # Kennedy Mosoti
 
 **Observability Platform Engineer - Infrastructure Automation - AI Tooling Experiments**
