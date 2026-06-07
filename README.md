@@ -8,29 +8,35 @@ Dallas-Fort Worth, TX
 
 I work near messy platform systems and try to make them more legible: Splunk, Logstash, SaltStack, Linux, RCA, remediation, DR readiness, and small tools that reduce guessing.
 
-The useful version of AI, to me, is not magic. It is better context, tighter tool contracts, visible diffs, validation, and fewer vague handoffs.
+I like infrastructure the way I like arguments: explicit, observable, and hard to bullshit.
 
-## Current Signal
+The useful version of AI, to me, is not magic. It is better context, tighter tool contracts, visible diffs, validation, and fewer vague handoffs. I want agents that behave like constrained engineers, not confident mystery boxes with commit access.
 
-| What keeps showing up | What I am doing with it |
-| --- | --- |
-| Hidden state | Turning it into telemetry, checks, and evidence. |
-| Manual repetition | Replacing risky repeat work with automation that can be reviewed. |
-| Folklore | Moving hidden assumptions into interfaces, docs, validation, and guardrails. |
-| Demos | Separating what merely moved once from what can survive pressure. |
-| Personal knowledge sprawl | Turning notes into a Systems Notebook instead of another pile of loose thoughts. |
+## What I keep circling
 
-## Active Threads
+```mermaid
+flowchart LR
+    A[Confusion] --> B[Structure]
+    B --> C[Visible state]
+    C --> D[Safer automation]
+    D --> E[Less guessing]
+    E --> F[Better questions]
+    F --> B
+```
 
-| Thread | Status | Why it matters |
-| --- | --- | --- |
-| Observability platform work | working | Splunk, Logstash, Kafka ingestion paths, RCA, remediation, and platform health analysis. |
-| Salt and infrastructure automation | working | Repeatable rollout paths, config boundaries, drift control, and safer operational changes. |
-| tea-style doctrine | living | A scaffold for the engineering rules, habits, and patterns I keep collecting. |
-| resume-builder | web demo | Structured resume data in, inspectable rendered output out. |
-| Agent-safe tool boundaries | needs harness | Agents only become useful when validation, diffs, render checks, and failure modes are visible. |
+That loop explains a lot of what I care about.
 
-## Recent Evidence
+I do not mind mundane work. I mind mundane work that repeats forever, hides the real state of the system, and trains people to rely on memory instead of evidence.
+
+## Current obsessions
+
+- **Observability platform work:** Splunk, Logstash, Kafka ingestion paths, RCA, remediation, and platform health analysis.
+- **Salt and infrastructure automation:** repeatable rollout paths, config boundaries, drift control, and safer operational changes.
+- **tea-style doctrine:** a place to collect engineering rules before they dissolve back into vibes.
+- **resume-builder:** structured resume data in, inspectable rendered output out.
+- **Agent-safe tool boundaries:** schema validation, visible diffs, render checks, and failure modes before trust.
+
+## Recent evidence
 
 - Automated search-filter updates across **3,000+ Splunk roles**.
 - Supported Salt-based Splunk automation across **100+ search heads**.
@@ -42,26 +48,48 @@ The useful version of AI, to me, is not magic. It is better context, tighter too
 
 My website is the main working surface now: **https://kmosoti.github.io/**
 
-| Area | What it is |
-| --- | --- |
-| [Signal](https://kmosoti.github.io/#signal) | Current focus areas without turning the profile into a resume dump. |
-| [Work](https://kmosoti.github.io/#work) | Concrete platform and automation evidence. |
-| [Systems Notebook](https://kmosoti.github.io/notebook/) | Doctrine, field notes, diagrams, experiments, and learning artifacts. |
-| [Project Labs](https://kmosoti.github.io/labs/) | Unfinished repos framed by what is real, fragile, and next. |
-| [resume-builder sandbox](https://kmosoti.github.io/labs/resume-builder/sandbox.html) | A small browser demo for structured resume data and rendered output. |
+It is not meant to be a glossy portfolio. It is closer to a public notebook with taste: doctrine, field notes, diagrams, experiments, project labs, and whatever I am currently trying to understand.
 
-## Project Lab Index
+Good entry points:
 
-| Lab | Honest state | Next useful improvement |
-| --- | --- | --- |
-| [resume-builder](https://kmosoti.github.io/labs/resume-builder/) | Local tool plus static web sandbox. | Real schema reuse, render checks, and visible diffs before trusting agent edits. |
-| [tea-style](https://kmosoti.github.io/notebook/doctrine/tea-style/) | Living doctrine. | Keep the useful rules, delete structure that has not earned its keep. |
-| [Agent-safe boundaries](https://kmosoti.github.io/notebook/experiments/agent-safe-tool-boundaries/) | Research thread. | Build a harness that proves changes before accepting them. |
+- [Signal](https://kmosoti.github.io/#signal) - what I am working near right now.
+- [Work](https://kmosoti.github.io/#work) - concrete platform and automation evidence.
+- [Systems Notebook](https://kmosoti.github.io/notebook/) - doctrine, field notes, diagrams, and experiments.
+- [Project Labs](https://kmosoti.github.io/labs/) - unfinished repos framed by what is real, fragile, and next.
+- [resume-builder sandbox](https://kmosoti.github.io/labs/resume-builder/sandbox.html) - a small browser demo for structured resume data and rendered output.
 
-## Operating Rules
+## Project labs
+
+<details open>
+<summary><strong>resume-builder</strong> - structured documents instead of formatter wrestling</summary>
+
+Normal resume editing feels backwards. The content is structured, but people edit it like a fragile visual artifact. I would rather keep the truth in portable data and render the final document from that.
+
+Current state: local tool plus static web sandbox.
+
+Next honest improvement: real schema reuse, render checks, and visible diffs before trusting agent edits.
+
+</details>
 
 <details>
-<summary>Rules I keep returning to</summary>
+<summary><strong>tea-style</strong> - doctrine engine, not a grand framework</summary>
+
+tea-style is where I organize the principles, habits, and engineering patterns I keep collecting.
+
+It should make thinking clearer. If it becomes another system to maintain for no reason, it has failed.
+
+</details>
+
+<details>
+<summary><strong>Agent-safe tool boundaries</strong> - useful agents need inspection ports</summary>
+
+I am interested in agents that can act, but only inside explicit boundaries.
+
+The useful version has schema validation, dry runs when risk matters, visible diffs, test output, render checks, and failure modes that do not require folklore.
+
+</details>
+
+## Operating rules
 
 1. Do not build tools that require folklore.
 2. Make mutations atomic and visible.
@@ -69,14 +97,12 @@ My website is the main working surface now: **https://kmosoti.github.io/**
 4. Do not confuse a demo with a system.
 5. Make state visible before humans start guessing.
 
-</details>
+> [!NOTE]
+> A system that cannot describe its own state makes operators hallucinate one.
 
-<details>
-<summary>Tools and systems I tend to reach for</summary>
+## Tools I tend to reach for
 
 Python, SaltStack, Bash, Git, Terraform, Linux, Splunk Enterprise, Logstash, Kafka ingestion workflows, AWS, REST APIs, Markdown, and small deterministic interfaces.
-
-</details>
 
 ## Links
 
