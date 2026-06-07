@@ -1,8 +1,28 @@
-# Kennedy Mosoti
+<div align="center">
 
-**Observability Platform Engineer - Infrastructure Automation - AI Tooling Experiments**
+<h1>Kennedy Mosoti</h1>
 
-Dallas-Fort Worth, TX
+<p>
+  <strong>Observability Platform Engineer</strong><br>
+  <sub>Infrastructure Automation / AI Tooling Experiments / Dallas-Fort Worth, TX</sub>
+</p>
+
+<p>
+  <a href="https://kmosoti.github.io/"><kbd>Systems Notebook</kbd></a>
+  <a href="https://kmosoti.github.io/#work"><kbd>Work Evidence</kbd></a>
+  <a href="https://kmosoti.github.io/labs/"><kbd>Project Labs</kbd></a>
+  <a href="assets/kennedy-mosoti-resume.pdf"><kbd>Resume</kbd></a>
+</p>
+
+<samp>
+  hidden state -&gt; visible state<br>
+  folklore -&gt; interfaces<br>
+  demo -&gt; system
+</samp>
+
+</div>
+
+---
 
 > Systems should tell on themselves.
 
@@ -49,6 +69,10 @@ I do not mind mundane work. I mind mundane work that repeats forever, hides the 
 My website is the main working surface now: **https://kmosoti.github.io/**
 
 It is not meant to be a glossy portfolio. It is closer to a public notebook with taste: doctrine, field notes, diagrams, experiments, project labs, and whatever I am currently trying to understand.
+
+<p align="center">
+  <samp>public working surface / field notes / doctrine / experiments / project labs</samp>
+</p>
 
 Good entry points:
 
