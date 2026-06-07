@@ -20,6 +20,10 @@
   demo -&gt; system
 </samp>
 
+<br><br>
+
+<img src="./assets/sisyphus-systems-notebook.webp" alt="Sisyphus as a systems engineer pushing an obsidian boulder covered in telemetry marks up a dark technical notebook landscape" width="100%">
+
 </div>
 
 ---
@@ -29,6 +33,8 @@
 I work near messy platform systems and try to make them more legible: Splunk, Logstash, SaltStack, Linux, RCA, remediation, DR readiness, and small tools that reduce guessing.
 
 I like infrastructure the way I like arguments: explicit, observable, and hard to bullshit.
+
+I am probably an optimistic absurdist by temperament. The boulder is real. The hill is real. The correct response is still to instrument the slope.
 
 The useful version of AI, to me, is not magic. It is better context, tighter tool contracts, visible diffs, validation, and fewer vague handoffs. I want agents that behave like constrained engineers, not confident mystery boxes with commit access.
 
@@ -48,10 +54,18 @@ That loop explains a lot of what I care about.
 
 I do not mind mundane work. I mind mundane work that repeats forever, hides the real state of the system, and trains people to rely on memory instead of evidence.
 
+Before I trust a tool, I usually want answers to the boring questions:
+
+- What's the data contract?
+- Is anyone using this code?
+- How can it be improved?
+
+That sounds basic, but a lot of operational pain starts when those answers are implied instead of written down.
+
 ## Current obsessions
 
 - **Observability platform work:** Splunk, Logstash, Kafka ingestion paths, RCA, remediation, and platform health analysis.
-- **Salt and infrastructure automation:** repeatable rollout paths, config boundaries, drift control, and safer operational changes.
+- **Salt and infrastructure automation:** repeatable rollout paths, config boundaries, drift control, and fewer nested-if rituals pretending to be logic.
 - **tea-style doctrine:** a place to collect engineering rules before they dissolve back into vibes.
 - **resume-builder:** structured resume data in, inspectable rendered output out.
 - **Agent-safe tool boundaries:** schema validation, visible diffs, render checks, and failure modes before trust.
@@ -120,6 +134,7 @@ The useful version has schema validation, dry runs when risk matters, visible di
 3. Keep config as intent, not hidden business logic.
 4. Do not confuse a demo with a system.
 5. Make state visible before humans start guessing.
+6. If the logic matters, give it shape. Nested conditionals and vague types are where future confusion nests.
 
 > [!NOTE]
 > A system that cannot describe its own state makes operators hallucinate one.
