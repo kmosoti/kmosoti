@@ -8,21 +8,13 @@
 </p>
 
 <p>
-  <a href="https://kmosoti.github.io/"><kbd>Systems Notebook</kbd></a>
-  <a href="https://kmosoti.github.io/#work"><kbd>Work Evidence</kbd></a>
-  <a href="https://kmosoti.github.io/labs/"><kbd>Project Labs</kbd></a>
-  <a href="assets/kennedy-mosoti-resume.pdf"><kbd>Resume</kbd></a>
+  <a href="https://kmosoti.github.io/"><kbd>systems notebook</kbd></a>
+  <a href="https://kmosoti.github.io/#work"><kbd>work evidence</kbd></a>
+  <a href="https://kmosoti.github.io/labs/"><kbd>project labs</kbd></a>
+  <a href="assets/kennedy-mosoti-resume.pdf"><kbd>resume</kbd></a>
 </p>
 
-<samp>
-  hidden state -&gt; visible state<br>
-  folklore -&gt; interfaces<br>
-  demo -&gt; system
-</samp>
-
-<br><br>
-
-<img src="./assets/sisyphus-systems-notebook.webp" alt="Sisyphus as a systems engineer pushing an obsidian boulder covered in telemetry marks up a dark technical notebook landscape" width="100%">
+<img src="./assets/profile-console.svg" alt="Rich-style terminal card describing Kennedy's systems notebook, questions, and operating bias" width="100%">
 
 </div>
 
@@ -30,47 +22,31 @@
 
 > Systems should tell on themselves.
 
-I work near messy platform systems and try to make them more legible: Splunk, Logstash, SaltStack, Linux, RCA, remediation, DR readiness, and small tools that reduce guessing.
+I work around systems that hide too much state and make tired people guess. Most of my professional work sits near Splunk, Logstash, SaltStack, Linux, RCA, remediation, DR readiness, and the small tools that make operational mess less mysterious.
 
 I like infrastructure the way I like arguments: explicit, observable, and hard to bullshit.
 
-I am probably an optimistic absurdist by temperament. The boulder is real. The hill is real. The correct response is still to instrument the slope.
+I am an optimistic absurdist by temperament. The boulder is real. The hill is real. The correct response is still to instrument the slope.
 
-The useful version of AI, to me, is not magic. It is better context, tighter tool contracts, visible diffs, validation, and fewer vague handoffs. I want agents that behave like constrained engineers, not confident mystery boxes with commit access.
+## The questions I keep asking
 
-## What I keep circling
-
-```mermaid
-flowchart LR
-    A[Confusion] --> B[Structure]
-    B --> C[Visible state]
-    C --> D[Safer automation]
-    D --> E[Less guessing]
-    E --> F[Better questions]
-    F --> B
+```text
+What's the data contract?
+Is anyone using this code?
+How can it be improved?
 ```
 
-That loop explains a lot of what I care about.
+Those questions sound plain because they should be plain. A lot of operational pain starts when the important answers are implied, inherited, or trapped in somebody's head.
 
-I do not mind mundane work. I mind mundane work that repeats forever, hides the real state of the system, and trains people to rely on memory instead of evidence.
+## What I am usually poking at
 
-Before I trust a tool, I usually want answers to the boring questions:
+- Making hidden state visible before humans start inventing stories about it.
+- Replacing repeated manual work with automation that can be reviewed.
+- Pulling logic out of nested-if fog and giving it stronger shape.
+- Treating personal documents and notes like artifacts worth rendering, validating, and improving.
+- Figuring out where AI agents are useful without pretending confidence is a control plane.
 
-- What's the data contract?
-- Is anyone using this code?
-- How can it be improved?
-
-That sounds basic, but a lot of operational pain starts when those answers are implied instead of written down.
-
-## Current obsessions
-
-- **Observability platform work:** Splunk, Logstash, Kafka ingestion paths, RCA, remediation, and platform health analysis.
-- **Salt and infrastructure automation:** repeatable rollout paths, config boundaries, drift control, and fewer nested-if rituals pretending to be logic.
-- **tea-style doctrine:** a place to collect engineering rules before they dissolve back into vibes.
-- **resume-builder:** structured resume data in, inspectable rendered output out.
-- **Agent-safe tool boundaries:** schema validation, visible diffs, render checks, and failure modes before trust.
-
-## Recent evidence
+## A little evidence
 
 - Automated search-filter updates across **3,000+ Splunk roles**.
 - Supported Salt-based Splunk automation across **100+ search heads**.
@@ -80,23 +56,18 @@ That sounds basic, but a lot of operational pain starts when those answers are i
 
 ## Systems Notebook
 
-My website is the main working surface now: **https://kmosoti.github.io/**
+My website is the main working surface: **https://kmosoti.github.io/**
 
 It is not meant to be a glossy portfolio. It is closer to a public notebook with taste: doctrine, field notes, diagrams, experiments, project labs, and whatever I am currently trying to understand.
 
-<p align="center">
-  <samp>public working surface / field notes / doctrine / experiments / project labs</samp>
-</p>
+Good doors into it:
 
-Good entry points:
-
-- [Signal](https://kmosoti.github.io/#signal) - what I am working near right now.
+- [Signal](https://kmosoti.github.io/#signal) - current focus without turning the profile into a resume dump.
 - [Work](https://kmosoti.github.io/#work) - concrete platform and automation evidence.
 - [Systems Notebook](https://kmosoti.github.io/notebook/) - doctrine, field notes, diagrams, and experiments.
 - [Project Labs](https://kmosoti.github.io/labs/) - unfinished repos framed by what is real, fragile, and next.
-- [resume-builder sandbox](https://kmosoti.github.io/labs/resume-builder/sandbox.html) - a small browser demo for structured resume data and rendered output.
 
-## Project labs
+## Lab drawer
 
 <details open>
 <summary><strong>resume-builder</strong> - structured documents instead of formatter wrestling</summary>
@@ -119,7 +90,7 @@ It should make thinking clearer. If it becomes another system to maintain for no
 </details>
 
 <details>
-<summary><strong>Agent-safe tool boundaries</strong> - useful agents need inspection ports</summary>
+<summary><strong>agent-safe tool boundaries</strong> - useful agents need inspection ports</summary>
 
 I am interested in agents that can act, but only inside explicit boundaries.
 
@@ -127,21 +98,8 @@ The useful version has schema validation, dry runs when risk matters, visible di
 
 </details>
 
-## Operating rules
-
-1. Do not build tools that require folklore.
-2. Make mutations atomic and visible.
-3. Keep config as intent, not hidden business logic.
-4. Do not confuse a demo with a system.
-5. Make state visible before humans start guessing.
-6. If the logic matters, give it shape. Nested conditionals and vague types are where future confusion nests.
-
 > [!NOTE]
 > A system that cannot describe its own state makes operators hallucinate one.
-
-## Tools I tend to reach for
-
-Python, SaltStack, Bash, Git, Terraform, Linux, Splunk Enterprise, Logstash, Kafka ingestion workflows, AWS, REST APIs, Markdown, and small deterministic interfaces.
 
 ## Links
 
