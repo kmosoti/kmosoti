@@ -8,13 +8,15 @@
 </p>
 
 <p>
-  <a href="https://kmosoti.github.io/"><kbd>systems notebook</kbd></a>
-  <a href="https://kmosoti.github.io/#work"><kbd>work evidence</kbd></a>
-  <a href="https://kmosoti.github.io/labs/"><kbd>project labs</kbd></a>
+  <a href="https://kennedy.mosoti.dev/writing/"><kbd>systems notebook</kbd></a>
+  <a href="https://kennedy.mosoti.dev/"><kbd>work evidence</kbd></a>
+  <a href="https://kennedy.mosoti.dev/projects/"><kbd>project labs</kbd></a>
   <a href="assets/kennedy-mosoti-resume.pdf"><kbd>resume</kbd></a>
 </p>
 
-<img src="./assets/profile-console.svg" alt="Rich-style terminal card describing Kennedy's systems notebook, questions, and operating bias" width="100%">
+<!-- ui-servo:begin:header -->
+<img src="./assets/ui-servo-console.svg" alt="ui-servo console card: Kennedy Mosoti, observability platform engineer" width="100%">
+<!-- ui-servo:end:header -->
 
 </div>
 
@@ -54,18 +56,45 @@ Those questions sound plain because they should be plain. A lot of operational p
 - Investigated DR readiness gaps around cluster-manager and deployer workflows.
 - Evaluated AI-generated Python, JavaScript, and SQL for correctness, maintainability, edge cases, and instruction following.
 
+## The site
+
+<!-- ui-servo:begin:site -->
+**[kennedy.mosoti.dev](https://kennedy.mosoti.dev)** — a Rust/axum site exported to static files, served by Caddy on a 512MB droplet. Offline-capable, precompressed, and deployed by CI.
+
+| | |
+| --- | --- |
+| Live release | [`a5a3e71`](https://github.com/kmosoti/ui-servo/commit/a5a3e71b5cf4f2769f80b4a1a80eb82d1c898c14) |
+| Service worker | `3880c3ab9f46d6ed` |
+| Deployed | 2026-08-11 |
+<!-- ui-servo:end:site -->
+
 ## Systems Notebook
 
-My website is the main working surface: **https://kmosoti.github.io/**
+My website is the main working surface: **https://kennedy.mosoti.dev/**
 
 It is not meant to be a glossy portfolio. It is closer to a public notebook with taste: doctrine, field notes, diagrams, experiments, project labs, and whatever I am currently trying to understand.
 
 Good doors into it:
 
-- [Signal](https://kmosoti.github.io/#signal) - current focus without turning the profile into a resume dump.
-- [Work](https://kmosoti.github.io/#work) - concrete platform and automation evidence.
-- [Systems Notebook](https://kmosoti.github.io/notebook/) - doctrine, field notes, diagrams, and experiments.
-- [Project Labs](https://kmosoti.github.io/labs/) - unfinished repos framed by what is real, fragile, and next.
+- [About](https://kennedy.mosoti.dev/about/) - current focus without turning the profile into a resume dump.
+- [Work](https://kennedy.mosoti.dev/) - concrete platform and automation evidence.
+- [Systems Notebook](https://kennedy.mosoti.dev/writing/) - doctrine, field notes, diagrams, and experiments.
+- [Project Labs](https://kennedy.mosoti.dev/projects/) - unfinished repos framed by what is real, fragile, and next.
+
+## Project ledger
+
+<!-- ui-servo:begin:projects -->
+| Project | Status | What it is |
+| --- | --- | --- |
+| **[BlackCell](https://github.com/kmosoti/blackcell)** | `pre-alpha` | Local-first, evidence-gated control runtime for coding agents. |
+| **[splunk-dashboard-studio](https://github.com/kmosoti/splunk-dashboard-studio-python)** | `pre-alpha` | Pydantic 2 compiler/validator for Splunk Dashboard Studio, version-aware 9.4-10.4. |
+| **Kernform** | `pre-alpha` | Deterministic project scaffolding and repo-conformance tool. Rust core, PyO3 bridge, Python SDK/CLI. |
+| **[PraxisLedger](https://github.com/kmosoti/PraxisLedger)** | `early bootstrap` | Provenance and temporal knowledge graph. SQLite + Rust + Python. |
+| **SAI** | `pre-alpha` | Agent routing modeled on brain-network dynamics. |
+| **[learning-os](https://github.com/kmosoti/learning-os)** | `active` | Adaptive personal-learning app. FastAPI + SQLAlchemy. |
+
+_Statuses are read from the site's own resume data, not retyped here. Nothing is past pre-alpha; when that changes this table changes with it._
+<!-- ui-servo:end:projects -->
 
 ## Lab drawer
 
@@ -103,6 +132,6 @@ The useful version has schema validation, dry runs when risk matters, visible di
 
 ## Links
 
-- Website: https://kmosoti.github.io/
+- Website: https://kennedy.mosoti.dev/
 - Resume: [assets/kennedy-mosoti-resume.pdf](./assets/kennedy-mosoti-resume.pdf)
 - Email: kennedy.rmosoti@gmail.com
