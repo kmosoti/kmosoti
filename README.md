@@ -1,108 +1,74 @@
-<div align="center">
+# Kennedy Mosoti
 
-<h1>Kennedy Mosoti</h1>
+**Observability platform engineer building development infrastructure for AI-assisted systems.**
 
-<p>
-  <strong>Observability Platform Engineer</strong><br>
-  <sub>Infrastructure Automation / AI Tooling Experiments / Dallas-Fort Worth, TX</sub>
-</p>
-
-<p>
-  <a href="https://kmosoti.github.io/"><kbd>systems notebook</kbd></a>
-  <a href="https://kmosoti.github.io/#work"><kbd>work evidence</kbd></a>
-  <a href="https://kmosoti.github.io/labs/"><kbd>project labs</kbd></a>
-  <a href="assets/kennedy-mosoti-resume.pdf"><kbd>resume</kbd></a>
-</p>
-
-<img src="./assets/profile-console.svg" alt="Rich-style terminal card describing Kennedy's systems notebook, questions, and operating bias" width="100%">
-
-</div>
-
----
+[Website](https://kennedy.mosoti.dev) · [GitHub](https://github.com/kmosoti) · [Résumé](./assets/kennedy-mosoti-resume.pdf) · [Email](mailto:kennedy.rmosoti@gmail.com)
 
 > Systems should tell on themselves.
 
-I work around systems that hide too much state and make tired people guess. Most of my professional work sits near Splunk, Logstash, SaltStack, Linux, RCA, remediation, DR readiness, and the small tools that make operational mess less mysterious.
+I work where infrastructure, platform engineering, observability, and AI-assisted development meet. My professional background is in Splunk, Logstash, SaltStack, Linux, automation, incident analysis, remediation, and disaster-recovery readiness.
 
-I like infrastructure the way I like arguments: explicit, observable, and hard to bullshit.
+The current work is more foundational: I am building the development tools I want before I use them to take on harder problems, including problems outside my home domain.
 
-I am an optimistic absurdist by temperament. The boulder is real. The hill is real. The correct response is still to instrument the slope.
+## Roadmap
 
-## The questions I keep asking
+The roadmap has two stages.
+
+1. **Build the development substrate.** Make repository structure, agent coordination, authority, evidence, testing, and operational state explicit.
+2. **Use it beyond the substrate.** Apply those tools to unfamiliar problem domains without pretending that confidence is evidence or that an agent is its own control plane.
+
+The tools should make it safer to enter unfamiliar territory. They should expose assumptions, preserve provenance, constrain effects, and make failure inspectable.
+
+## Current projects
+
+| Project | Role in the toolchain |
+| --- | --- |
+| [Blackcell](https://github.com/kmosoti/blackcell) | Evidence-grounded action control for LLM agents, with typed proposals, deterministic authorization, and replayable outcomes. |
+| [Kernform](https://github.com/kmosoti/Kernform) | Repository-shaping and architectural-conformance engine driven by explicit, versioned forms. |
+| [cognitive-miniworld](https://github.com/kmosoti/cognitive-miniworld) | Deterministic testbed for cognitive primitives and falsifiable experiments. |
+| [Gordian](https://github.com/kmosoti/gordian) | Research-driven coordination substrate for software development by humans and autonomous agents. |
+| [FabricO11y](https://github.com/kmosoti/FabricO11y) | Rust-first evidence runtime for ordered observations, provenance, corrections, and completeness-aware answers. |
+
+These projects approach the same problem from different layers:
 
 ```text
-What's the data contract?
-Is anyone using this code?
-How can it be improved?
+repository contract  ->  coordination  ->  controlled action
+        |                       |                 |
+     Kernform                Gordian          Blackcell
+                                |
+                         evidence runtime
+                                |
+                           FabricO11y
+                                |
+                      bounded experiments
+                                |
+                     cognitive-miniworld
 ```
 
-Those questions sound plain because they should be plain. A lot of operational pain starts when the important answers are implied, inherited, or trapped in somebody's head.
+## Paused, not abandoned
 
-## What I am usually poking at
+[learning-os](https://github.com/kmosoti/learning-os) is intentionally paused while I build the AI-engineering, infrastructure, platform, and observability foundations above. It remains a candidate downstream problem for the toolchain once the substrate is mature enough to justify using it.
 
-- Making hidden state visible before humans start inventing stories about it.
-- Replacing repeated manual work with automation that can be reviewed.
-- Pulling logic out of nested-if fog and giving it stronger shape.
-- Treating personal documents and notes like artifacts worth rendering, validating, and improving.
-- Figuring out where AI agents are useful without pretending confidence is a control plane.
+## Public interface
 
-## A little evidence
+[kennedy.mosoti.dev](https://kennedy.mosoti.dev) is my authoritative website. [ui-servo](https://github.com/kmosoti/ui-servo) builds it through an interface-quality control loop: a written direction is the reference signal, browser probes are sensors, and blind cross-family critics act as comparators.
 
-- Automated search-filter updates across **3,000+ Splunk roles**.
-- Supported Salt-based Splunk automation across **100+ search heads**.
-- Worked around Kafka, Logstash, Splunk ingestion paths, stale topic cleanup, and remediation.
-- Investigated DR readiness gaps around cluster-manager and deployer workflows.
+This profile repository is only the GitHub front door. The site source, build logic, and quality gates belong to `ui-servo`.
+
+## Operational evidence
+
+- Automated search-filter changes across more than **3,000 Splunk roles**.
+- Supported Salt-based automation across more than **100 search heads**.
+- Worked across Kafka, Logstash, and Splunk ingestion paths, including stale-topic cleanup and lagging consumers.
+- Investigated disaster-recovery readiness gaps around cluster-manager and deployer workflows.
 - Evaluated AI-generated Python, JavaScript, and SQL for correctness, maintainability, edge cases, and instruction following.
 
-## Systems Notebook
+## Operating bias
 
-My website is the main working surface: **https://kmosoti.github.io/**
+- Prefer explicit contracts to inherited assumptions.
+- Inspect before mutating.
+- Bind claims to evidence and exact artifacts.
+- Make authority narrower than capability.
+- Treat observability as part of correctness, not decoration.
 
-It is not meant to be a glossy portfolio. It is closer to a public notebook with taste: doctrine, field notes, diagrams, experiments, project labs, and whatever I am currently trying to understand.
-
-Good doors into it:
-
-- [Signal](https://kmosoti.github.io/#signal) - current focus without turning the profile into a resume dump.
-- [Work](https://kmosoti.github.io/#work) - concrete platform and automation evidence.
-- [Systems Notebook](https://kmosoti.github.io/notebook/) - doctrine, field notes, diagrams, and experiments.
-- [Project Labs](https://kmosoti.github.io/labs/) - unfinished repos framed by what is real, fragile, and next.
-
-## Lab drawer
-
-<details open>
-<summary><strong>resume-builder</strong> - structured documents instead of formatter wrestling</summary>
-
-Normal resume editing feels backwards. The content is structured, but people edit it like a fragile visual artifact. I would rather keep the truth in portable data and render the final document from that.
-
-Current state: local tool plus static web sandbox.
-
-Next honest improvement: real schema reuse, render checks, and visible diffs before trusting agent edits.
-
-</details>
-
-<details>
-<summary><strong>tea-style</strong> - doctrine engine, not a grand framework</summary>
-
-tea-style is where I organize the principles, habits, and engineering patterns I keep collecting.
-
-It should make thinking clearer. If it becomes another system to maintain for no reason, it has failed.
-
-</details>
-
-<details>
-<summary><strong>agent-safe tool boundaries</strong> - useful agents need inspection ports</summary>
-
-I am interested in agents that can act, but only inside explicit boundaries.
-
-The useful version has schema validation, dry runs when risk matters, visible diffs, test output, render checks, and failure modes that do not require folklore.
-
-</details>
-
-> [!NOTE]
-> A system that cannot describe its own state makes operators hallucinate one.
-
-## Links
-
-- Website: https://kmosoti.github.io/
-- Resume: [assets/kennedy-mosoti-resume.pdf](./assets/kennedy-mosoti-resume.pdf)
-- Email: kennedy.rmosoti@gmail.com
+I am an optimistic absurdist by temperament. The boulder is real. The hill is real. The correct response is still to instrument the slope.

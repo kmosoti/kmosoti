@@ -1,49 +1,36 @@
-# Profile And Website Deployment
+# Profile and Website Surfaces
 
-This repository is the GitHub profile repository:
+The public presence has three distinct parts.
 
-```text
-kmosoti/kmosoti
+| Surface | Purpose | Authority |
+| --- | --- | --- |
+| `kmosoti/kmosoti` | GitHub profile README and profile-owned assets | Authoritative for the GitHub profile only |
+| `kmosoti/ui-servo` | Website source, build logic, direction contract, and quality gates | Authoritative for website implementation |
+| `kennedy.mosoti.dev` | Published personal website | Authoritative public website |
+
+The old `kmosoti.github.io` deployment is not an authoritative source or portfolio. If retained, it should contain only a minimal redirect to `kennedy.mosoti.dev` so old links continue to resolve.
+
+## Profile Repository Responsibilities
+
+- Maintain a concise GitHub-native introduction.
+- Point to the authoritative website and current projects.
+- Store the résumé linked from the profile.
+- Describe paused work honestly.
+- Pass the repository's prose checks.
+
+## Website Responsibilities
+
+All website design and implementation changes begin in `ui-servo`. Its export process produces the deployable site only after deterministic checks and visual review complete.
+
+Do not edit generated website output as a substitute for changing `ui-servo`.
+
+## Prose Checks
+
+Install Vale, then run:
+
+```bash
+vale sync
+vale README.md DEPLOY.md
 ```
 
-Its `README.md` renders at:
-
-```text
-https://github.com/kmosoti
-```
-
-The full website now lives in the separate root Pages repository:
-
-```text
-kmosoti/kmosoti.github.io
-```
-
-That site renders at:
-
-```text
-https://kmosoti.github.io/
-```
-
-## Local Repos
-
-Expected local paths:
-
-```text
-C:\Users\kenne\Documents\personal_directory\Projects\kmosoti
-C:\Users\kenne\Documents\personal_directory\Projects\kmosoti.github.io
-```
-
-## Profile Repo Responsibilities
-
-- Short front-door README.
-- Resume asset used by the profile.
-- Banner image used by the profile.
-- No generated notebook pages.
-
-## Website Repo Responsibilities
-
-- Static Systems Notebook website.
-- Markdown content source.
-- Python renderer.
-- Generated root HTML for branch-based Pages.
-- GitHub Actions workflow for `_site` artifact deployment.
+The repository keeps the Vale configuration under version control and ignores downloaded style packages.
