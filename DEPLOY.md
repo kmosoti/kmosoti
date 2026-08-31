@@ -23,8 +23,6 @@ vale README.md PROFILE_README_SPEC.md DEPLOY.md
 
 The GitHub Actions workflow repeats these checks with read-only repository permissions. It reports drift but never commits generated files.
 
-The black-hole GIF is a profile-owned capture of `ui-servo`'s BlackCell canvas. A deliberate recapture must update the animation and reduced-motion still together; website deployment does not synchronize them.
-
 Publish all profile changes from this repository. Website deployment must not push into the profile repository.
 
 ## Website Publication

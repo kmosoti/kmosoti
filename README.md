@@ -11,15 +11,6 @@ The goal is a development ecosystem for quickly experimenting with, testing, and
 
 Most of the work starts with curiosity. Building it in public is also a way to become a more principled engineer: clearer boundaries, better tests, better evidence, and fewer hidden assumptions.
 
-<p align="center">
-  <picture>
-    <source media="(prefers-reduced-motion: reduce)" srcset="./assets/black-hole-still.png">
-    <img src="./assets/black-hole.gif" alt="Animated gravitationally lensed black hole with an accretion disk, photon ring, and Doppler-brightened gas." width="256">
-  </picture>
-  <br>
-  <sub>Captured from the BlackCell canvas study in ui-servo.</sub>
-</p>
-
 ## Project field
 
 <picture>

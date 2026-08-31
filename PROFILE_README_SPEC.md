@@ -4,7 +4,7 @@ The profile README is a compact public workbench, not a résumé or project-stat
 
 ## Authority
 
-`profile.toml` owns identity text, project capabilities, roadmap text, and links. The renderer owns the profile SVGs and the marked README regions. The black-hole animation and its still fallback are deliberate captures from `ui-servo`, not generated profile data. Prose outside the markers remains human-authored.
+`profile.toml` owns identity text, project capabilities, roadmap text, and links. The renderer owns the profile SVGs and the marked README regions. Prose outside the markers remains human-authored.
 
 Run the renderer after changing the manifest:
 
@@ -20,15 +20,14 @@ Keep these sections in order:
 
 1. Name and generated console hero.
 2. Three short opening paragraphs covering the workbench, development ecosystem, curiosity, and principled engineering.
-3. The captured BlackCell animation with a reduced-motion fallback.
-4. A generated capability field that does not imply dependencies or maturity.
-5. A generated `Next` roadmap.
-6. One collapsed explanation of how to read the workbench.
-7. A generated `Links` list.
+3. A generated capability field that does not imply dependencies or maturity.
+4. A generated `Next` roadmap.
+5. One collapsed explanation of how to read the workbench.
+6. A generated `Links` list.
 
 ## Content Rules
 
-- Keep the rendered, human-readable README between 150 and 225 words.
+- Keep the rendered, human-readable README between 150 and 200 words.
 - List exactly five projects in this order: BlackCell, Kernform, ViabilityGrid / cognitive-miniworld, Gordian, and FabricO11y.
 - Show those projects once in the capability field. Let GitHub pins provide repository links, with no semantic meaning assigned to pin order.
 - Use exactly three roadmap stages: `Now`, `Next`, and `Later`.
@@ -41,8 +40,6 @@ Keep these sections in order:
 
 - Use the ember-console palette recorded in the renderer.
 - Keep SVGs static and legible against both GitHub themes. Use the narrow hero and capability-field assets below 600 pixels.
-- Keep the black-hole GIF at 256 pixels and below one mebibyte. Capture the actual `ui-servo` BlackCell canvas rather than recreating it.
-- Serve `black-hole-still.png` first when `prefers-reduced-motion` is active.
 - Include a title, description, and README alternative text for each visual.
 - Do not use scripts, animation elements, external resources, or embedded HTML in SVGs.
 - Show projects as independent capabilities around the workbench. Lines may show shared context but must not use arrowheads.

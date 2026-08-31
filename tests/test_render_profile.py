@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import re
-import struct
 import sys
 import tempfile
 import unittest
@@ -135,19 +134,7 @@ class ReadmeContractTests(unittest.TestCase):
     def test_human_readable_word_count_is_compact(self) -> None:
         count = len(visible_words(self.readme))
         self.assertGreaterEqual(count, 150)
-        self.assertLessEqual(count, 225)
-
-    def test_black_hole_capture_is_compact_animated_and_motion_safe(self) -> None:
-        gif = (ROOT / "assets" / "black-hole.gif").read_bytes()
-        still = (ROOT / "assets" / "black-hole-still.png").read_bytes()
-        self.assertIn(gif[:6], (b"GIF87a", b"GIF89a"))
-        self.assertEqual(struct.unpack("<HH", gif[6:10]), (256, 256))
-        self.assertGreaterEqual(gif.count(b"\x21\xf9\x04"), 40)
-        self.assertLess(len(gif), 1024 * 1024)
-        self.assertEqual(still[:8], b"\x89PNG\r\n\x1a\n")
-        self.assertEqual(struct.unpack(">II", still[16:24]), (256, 256))
-        reduced = 'media="(prefers-reduced-motion: reduce)"'
-        self.assertLess(self.readme.index(reduced), self.readme.index("black-hole.gif"))
+        self.assertLessEqual(count, 200)
 
     def test_sections_do_not_repeat_the_pinned_projects(self) -> None:
         headings = re.findall(r"^## (.+)$", self.readme, flags=re.MULTILINE)
