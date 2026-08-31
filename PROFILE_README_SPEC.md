@@ -4,7 +4,7 @@ The profile README is a compact public workbench, not a résumé or project-stat
 
 ## Authority
 
-`profile.toml` owns identity text, project facts, roadmap text, and links. The renderer owns the two profile SVGs and the marked README regions. Prose outside the markers remains human-authored.
+`profile.toml` owns identity text, project capabilities, roadmap text, and links. The renderer owns the profile SVGs and the marked README regions. Prose outside the markers remains human-authored.
 
 Run the renderer after changing the manifest:
 
@@ -21,16 +21,15 @@ Keep these sections in order:
 1. Name and generated console hero.
 2. Three short opening paragraphs covering the workbench, development ecosystem, curiosity, and principled engineering.
 3. A generated capability field that does not imply dependencies or maturity.
-4. A generated `Projects` role table.
-5. A generated `Next` roadmap.
-6. One collapsed explanation of how to read the workbench.
-7. A generated `Links` list.
+4. A generated `Next` roadmap.
+5. One collapsed explanation of how to read the workbench.
+6. A generated `Links` list.
 
 ## Content Rules
 
-- Keep the rendered, human-readable README between 200 and 275 words.
+- Keep the rendered, human-readable README between 150 and 200 words.
 - List exactly five projects in this order: BlackCell, Kernform, ViabilityGrid / cognitive-miniworld, Gordian, and FabricO11y.
-- Give each project one role statement and no maturity column.
+- Show those projects once in the capability field. Let GitHub pins provide repository links, with no semantic meaning assigned to pin order.
 - Use exactly three roadmap stages: `Now`, `Next`, and `Later`.
 - Mention `learning-os` only in `Later`.
 - Link to the website, `ui-servo`, the résumé, and email.

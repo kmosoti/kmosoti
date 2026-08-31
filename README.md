@@ -20,18 +20,6 @@ Most of the work starts with curiosity. Building it in public is also a way to b
 
 _The field groups independent experiments by the questions they address. It does not claim a production integration._
 
-## Projects
-
-<!-- profile:begin:projects -->
-| Project | Role |
-| --- | --- |
-| [BlackCell](https://github.com/kmosoti/blackcell) | Plans, runs, reviews, verifies, and replays project-scoped coding-agent work. |
-| [Kernform](https://github.com/kmosoti/Kernform) | Turns typed project intent into repeatable scaffolds and lifecycle commands. |
-| [ViabilityGrid / cognitive-miniworld](https://github.com/kmosoti/cognitive-miniworld) | Tests cognitive mechanisms against simpler baselines in deterministic experiments. |
-| [Gordian](https://github.com/kmosoti/gordian) | Coordinates intent, source state, execution, evidence, and acceptance. |
-| [FabricO11y](https://github.com/kmosoti/FabricO11y) | Explores how to preserve observations, corrections, provenance, and incomplete answers. |
-<!-- profile:end:projects -->
-
 ## Next
 
 <!-- profile:begin:roadmap -->

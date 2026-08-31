@@ -54,9 +54,7 @@ MARKER = re.compile(
 class Project:
     id: str
     name: str
-    url: str
     capability: str
-    role: str
 
 
 @dataclass(frozen=True)
@@ -138,10 +136,7 @@ def load_profile(path: Path = MANIFEST, root: Path = ROOT) -> Profile:
         raise TypeError("projects must be an array of tables")
     projects: list[Project] = []
     for index, row in enumerate(project_rows):
-        values = _string_table(
-            f"projects[{index}]", row, {"id", "name", "url", "capability", "role"}
-        )
-        _https_url(f"projects[{index}].url", values["url"])
+        values = _string_table(f"projects[{index}]", row, {"id", "name", "capability"})
         projects.append(Project(**values))
 
     names = [project.name for project in projects]
@@ -320,12 +315,6 @@ def render_field_narrow(profile: Profile) -> str:
 
 
 def render_blocks(profile: Profile) -> dict[str, str]:
-    project_rows = ["| Project | Role |", "| --- | --- |"]
-    for project in profile.projects:
-        project_rows.append(
-            f"| [{_md(project.name)}]({project.url}) | {_md(project.role)} |"
-        )
-
     roadmap = profile.roadmap
     roadmap_rows = [
         f"- **Now:** {_md(roadmap['now'])}",
@@ -344,7 +333,6 @@ def render_blocks(profile: Profile) -> dict[str, str]:
         f"- [{_md(links['email_label'])}](mailto:{links['email_address']})",
     ]
     return {
-        "projects": "\n".join(project_rows),
         "roadmap": "\n".join(roadmap_rows),
         "links": "\n".join(link_rows),
     }

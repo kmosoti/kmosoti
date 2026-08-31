@@ -65,26 +65,26 @@ class RenderingTests(unittest.TestCase):
     def test_only_marked_regions_are_replaced(self) -> None:
         source = (
             "Human prose.\n"
-            "<!-- profile:begin:projects -->old<!-- profile:end:projects -->\n"
+            "<!-- profile:begin:roadmap -->old<!-- profile:end:roadmap -->\n"
         )
-        updated, seen = renderer.apply_blocks(source, {"projects": "new"})
+        updated, seen = renderer.apply_blocks(source, {"roadmap": "new"})
         self.assertIn("Human prose.", updated)
         self.assertIn("new", updated)
         self.assertNotIn("old", updated)
-        self.assertEqual(seen, {"projects"})
+        self.assertEqual(seen, {"roadmap"})
 
     def test_missing_duplicate_and_unknown_markers_fail(self) -> None:
         with self.assertRaisesRegex(ValueError, "missing marker"):
-            renderer.apply_blocks("plain", {"projects": "new"})
+            renderer.apply_blocks("plain", {"roadmap": "new"})
         duplicate = (
-            "<!-- profile:begin:projects --><!-- profile:end:projects -->"
-            "<!-- profile:begin:projects --><!-- profile:end:projects -->"
+            "<!-- profile:begin:roadmap --><!-- profile:end:roadmap -->"
+            "<!-- profile:begin:roadmap --><!-- profile:end:roadmap -->"
         )
         with self.assertRaisesRegex(ValueError, "duplicate marker"):
-            renderer.apply_blocks(duplicate, {"projects": "new"})
+            renderer.apply_blocks(duplicate, {"roadmap": "new"})
         unknown = "<!-- profile:begin:other --><!-- profile:end:other -->"
         with self.assertRaisesRegex(ValueError, "unknown marker"):
-            renderer.apply_blocks(unknown, {"projects": "new"})
+            renderer.apply_blocks(unknown, {"roadmap": "new"})
 
     def test_svg_assets_are_static_self_contained_and_accessible(self) -> None:
         for svg in (
@@ -133,18 +133,20 @@ class ReadmeContractTests(unittest.TestCase):
 
     def test_human_readable_word_count_is_compact(self) -> None:
         count = len(visible_words(self.readme))
-        self.assertGreaterEqual(count, 200)
-        self.assertLessEqual(count, 275)
+        self.assertGreaterEqual(count, 150)
+        self.assertLessEqual(count, 200)
 
-    def test_sections_and_project_rows_are_exact(self) -> None:
+    def test_sections_do_not_repeat_the_pinned_projects(self) -> None:
         headings = re.findall(r"^## (.+)$", self.readme, flags=re.MULTILINE)
-        self.assertEqual(headings, ["Project field", "Projects", "Next", "Links"])
-        rows = re.findall(
-            r"^\| \[([^]]+)]\(https://github.com/kmosoti/[^)]+\) \|",
-            self.readme,
-            re.MULTILINE,
-        )
-        self.assertEqual(rows, renderer.EXPECTED_PROJECTS)
+        self.assertEqual(headings, ["Project field", "Next", "Links"])
+        for repository in (
+            "blackcell",
+            "Kernform",
+            "cognitive-miniworld",
+            "gordian",
+            "FabricO11y",
+        ):
+            self.assertNotIn(f"github.com/kmosoti/{repository}", self.readme)
 
     def test_learning_os_appears_only_in_later(self) -> None:
         occurrences = [
