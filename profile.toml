@@ -1,0 +1,62 @@
+schema_version = 1
+
+[identity]
+name = "Kennedy Mosoti"
+role = "Observability platform engineer"
+thesis = "Build the tools. Test the assumptions. Make the evidence visible."
+
+[workbench]
+title = "Development workbench"
+subtitle = "experiment · test · deploy"
+
+[[projects]]
+id = "blackcell"
+name = "BlackCell"
+url = "https://github.com/kmosoti/blackcell"
+capability = "controlled execution"
+role = "Plans, runs, reviews, verifies, and replays project-scoped coding-agent work."
+
+[[projects]]
+id = "kernform"
+name = "Kernform"
+url = "https://github.com/kmosoti/Kernform"
+capability = "repository intent"
+role = "Turns typed project intent into repeatable scaffolds and lifecycle commands."
+
+[[projects]]
+id = "cognitive-miniworld"
+name = "ViabilityGrid / cognitive-miniworld"
+url = "https://github.com/kmosoti/cognitive-miniworld"
+capability = "deterministic experiments"
+role = "Tests cognitive mechanisms against simpler baselines in deterministic experiments."
+
+[[projects]]
+id = "gordian"
+name = "Gordian"
+url = "https://github.com/kmosoti/gordian"
+capability = "coordination"
+role = "Coordinates intent, source state, execution, evidence, and acceptance."
+
+[[projects]]
+id = "fabrico11y"
+name = "FabricO11y"
+url = "https://github.com/kmosoti/FabricO11y"
+capability = "evidence and provenance"
+role = "Explores how to preserve observations, corrections, provenance, and incomplete answers."
+
+[roadmap]
+now = "Keep building and testing each project on its own."
+next = "See which pieces are worth connecting."
+later = "Use the pieces that hold up to revisit paused ideas, including"
+paused_name = "learning-os"
+paused_url = "https://github.com/kmosoti/learning-os"
+
+[links]
+website_label = "kennedy.mosoti.dev"
+website_url = "https://kennedy.mosoti.dev"
+source_label = "ui-servo"
+source_url = "https://github.com/kmosoti/ui-servo"
+resume_label = "Résumé"
+resume_path = "./assets/kennedy-mosoti-resume.pdf"
+email_label = "Email"
+email_address = "kennedy.rmosoti@gmail.com"

@@ -1,0 +1,43 @@
+name: profile-readme
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: "1"
+
+concurrency:
+  group: profile-readme-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the profile repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+
+      - name: Check generated output and contracts
+        run: |
+          python3 tools/render_profile.py --check
+          python3 -m unittest discover -s tests -v
+
+      - name: Check prose
+        uses: vale-cli/vale-action@518a9136acc6e6668ce7c00d367051e0941e87ff # v3
+        with:
+          files: '["README.md", "PROFILE_README_SPEC.md", "DEPLOY.md"]'
+          filter_mode: nofilter
+          fail_level: any
+          min_alert_level: suggestion
+          reporter: github-pr-annotations

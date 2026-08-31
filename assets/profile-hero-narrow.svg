@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 430" role="img" aria-labelledby="title description">
+  <title id="title">Kennedy Mosoti — Observability platform engineer</title>
+  <desc id="description">Build the tools. Test the assumptions. Make the evidence visible.</desc>
+  <rect width="640" height="430" rx="14" fill="#0a0b0d"/>
+  <rect x="1" y="1" width="638" height="428" rx="13" fill="none" stroke="#262a2f" stroke-width="2"/>
+  <path d="M1 48H639" stroke="#262a2f"/>
+  <circle cx="24" cy="24" r="5" fill="#ff7a45"/>
+  <circle cx="43" cy="24" r="5" fill="#f2b134" opacity=".7"/>
+  <circle cx="62" cy="24" r="5" fill="#8b9096" opacity=".45"/>
+  <text x="84" y="29" fill="#8b9096" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="14">kennedy@workbench</text>
+  <text x="36" y="91" fill="#ff7a45" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="18">$ whoami</text>
+  <text x="36" y="148" fill="#eae5db" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="40" font-weight="700">Kennedy Mosoti</text>
+  <text x="37" y="184" fill="#ff7a45" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="15" letter-spacing="1.4">OBSERVABILITY PLATFORM ENGINEER</text>
+  <text x="37" y="241" fill="#8b9096" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="18">Build the tools.</text>
+  <text x="37" y="271" fill="#8b9096" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="18">Test the assumptions.</text>
+  <text x="37" y="301" fill="#8b9096" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="18">Make the evidence visible.</text>
+  <g transform="translate(520 315)" fill="none" stroke="#ff7a45">
+    <ellipse rx="76" ry="27" opacity=".2"/>
+    <ellipse rx="55" ry="55" opacity=".18" transform="rotate(35)"/>
+    <ellipse rx="39" ry="71" opacity=".14" transform="rotate(-55)"/>
+    <circle r="21" fill="#141619" stroke-width="1.5" opacity=".95"/>
+    <circle cx="71" cy="-9" r="4" fill="#ff7a45" stroke="none"/>
+    <circle cx="-39" cy="-44" r="3" fill="#f2b134" stroke="none"/>
+  </g>
+  <text x="36" y="394" fill="#8b9096" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace" font-size="13">public / inspectable</text>
+</svg>

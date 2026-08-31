@@ -1,1 +1,3 @@
 .vale/styles/
+__pycache__/
+*.py[cod]
