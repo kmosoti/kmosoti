@@ -11,29 +11,14 @@ The goal is a development ecosystem for quickly experimenting with, testing, and
 
 Most of the work starts with curiosity. Building it in public is also a way to become a more principled engineer: clearer boundaries, better tests, better evidence, and fewer hidden assumptions.
 
-## Project field
+## Selected work
 
-<picture>
-  <source media="(max-width: 600px)" srcset="./assets/project-field-narrow.svg">
-  <img src="./assets/project-field.svg" alt="Capability field showing BlackCell, Kernform, ViabilityGrid, Gordian, and FabricO11y as independent experiments around a development workbench." width="100%">
-</picture>
-
-_The field groups independent experiments by the questions they address. It does not claim a production integration._
-
-## Next
-
-<!-- profile:begin:roadmap -->
-- **Now:** Keep building and testing each project on its own.
-- **Next:** See which pieces are worth connecting.
-- **Later:** Use the pieces that hold up to revisit paused ideas, including [learning-os](https://github.com/kmosoti/learning-os).
-<!-- profile:end:roadmap -->
-
-<details>
-<summary><strong>How to read this workbench</strong></summary>
-
-I am developing and testing these projects independently. The field shows their areas of inquiry, not dependencies, maturity, or a finished toolchain. Useful connections can become explicit after they survive testing.
-
-</details>
+<!-- profile:begin:projects -->
+- [FabricO11y](https://github.com/kmosoti/FabricO11y) — Rust tooling for collecting and querying Linux host, agent, and OpenTelemetry data.
+- [Nomos](https://github.com/kmosoti/Nomos) — A Rust Linux agent that reconciles host state with declared configuration and verifies the result.
+- [Metron](https://github.com/kmosoti/Metron) — An experimental Rust runtime and harness for reproducible agent experiments and deterministic replay.
+- [Splunk Dashboard Studio Python](https://github.com/kmosoti/splunk-dashboard-studio-python) — Python tooling to generate reproducible Splunk Dashboard Studio definitions and check compatibility.
+<!-- profile:end:projects -->
 
 ## Links
 

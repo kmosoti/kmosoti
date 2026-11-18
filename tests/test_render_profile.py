@@ -27,19 +27,23 @@ def visible_words(markdown: str) -> list[str]:
 
 
 class ManifestTests(unittest.TestCase):
-    def test_current_manifest_has_the_exact_project_contract(self) -> None:
-        profile = renderer.load_profile()
-        self.assertEqual(
-            [project.name for project in profile.projects], renderer.EXPECTED_PROJECTS
-        )
-        self.assertEqual(len({project.id for project in profile.projects}), 5)
+    def test_non_https_project_url_fails_loudly(self) -> None:
+        source = renderer.MANIFEST.read_text(encoding="utf-8")
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "profile.toml"
+            path.write_text(source.replace(
+                "https://github.com/kmosoti/FabricO11y",
+                "http://github.com/kmosoti/FabricO11y",
+            ))
+            with self.assertRaisesRegex(ValueError, "absolute HTTPS URL"):
+                renderer.load_profile(path)
 
     def test_unknown_manifest_fields_fail_loudly(self) -> None:
         source = renderer.MANIFEST.read_text(encoding="utf-8")
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "profile.toml"
             path.write_text(
-                source.replace("schema_version = 1", "schema_version = 1\nextra = true")
+                source.replace("schema_version = 2", "schema_version = 2\nextra = true")
             )
             with self.assertRaisesRegex(ValueError, "unknown extra"):
                 renderer.load_profile(path)
@@ -65,33 +69,31 @@ class RenderingTests(unittest.TestCase):
     def test_only_marked_regions_are_replaced(self) -> None:
         source = (
             "Human prose.\n"
-            "<!-- profile:begin:roadmap -->old<!-- profile:end:roadmap -->\n"
+            "<!-- profile:begin:projects -->old<!-- profile:end:projects -->\n"
         )
-        updated, seen = renderer.apply_blocks(source, {"roadmap": "new"})
+        updated, seen = renderer.apply_blocks(source, {"projects": "new"})
         self.assertIn("Human prose.", updated)
         self.assertIn("new", updated)
         self.assertNotIn("old", updated)
-        self.assertEqual(seen, {"roadmap"})
+        self.assertEqual(seen, {"projects"})
 
     def test_missing_duplicate_and_unknown_markers_fail(self) -> None:
         with self.assertRaisesRegex(ValueError, "missing marker"):
-            renderer.apply_blocks("plain", {"roadmap": "new"})
+            renderer.apply_blocks("plain", {"projects": "new"})
         duplicate = (
-            "<!-- profile:begin:roadmap --><!-- profile:end:roadmap -->"
-            "<!-- profile:begin:roadmap --><!-- profile:end:roadmap -->"
+            "<!-- profile:begin:projects --><!-- profile:end:projects -->"
+            "<!-- profile:begin:projects --><!-- profile:end:projects -->"
         )
         with self.assertRaisesRegex(ValueError, "duplicate marker"):
-            renderer.apply_blocks(duplicate, {"roadmap": "new"})
+            renderer.apply_blocks(duplicate, {"projects": "new"})
         unknown = "<!-- profile:begin:other --><!-- profile:end:other -->"
         with self.assertRaisesRegex(ValueError, "unknown marker"):
-            renderer.apply_blocks(unknown, {"roadmap": "new"})
+            renderer.apply_blocks(unknown, {"projects": "new"})
 
     def test_svg_assets_are_static_self_contained_and_accessible(self) -> None:
         for svg in (
             renderer.render_hero(self.profile),
             renderer.render_hero_narrow(self.profile),
-            renderer.render_field(self.profile),
-            renderer.render_field_narrow(self.profile),
         ):
             renderer.validate_svg(svg)
             root = ET.fromstring(svg)
@@ -107,18 +109,6 @@ class RenderingTests(unittest.TestCase):
                 "marker-end",
             ):
                 self.assertNotIn(forbidden, lowered)
-
-    def test_capability_field_does_not_claim_dependencies_or_maturity(self) -> None:
-        fields = (
-            renderer.render_field(self.profile),
-            renderer.render_field_narrow(self.profile),
-        )
-        for field in fields:
-            lowered = field.lower()
-            self.assertIn("independent experiments", lowered)
-            self.assertNotIn("status", lowered)
-            self.assertNotIn("marker-end", lowered)
-
 
 class ReadmeContractTests(unittest.TestCase):
     def setUp(self) -> None:
@@ -136,28 +126,34 @@ class ReadmeContractTests(unittest.TestCase):
         self.assertGreaterEqual(count, 150)
         self.assertLessEqual(count, 200)
 
-    def test_sections_do_not_repeat_the_pinned_projects(self) -> None:
+    def test_selected_work_has_direct_project_links(self) -> None:
         headings = re.findall(r"^## (.+)$", self.readme, flags=re.MULTILINE)
-        self.assertEqual(headings, ["Project field", "Next", "Links"])
+        self.assertEqual(headings, ["Selected work", "Links"])
         for repository in (
-            "blackcell",
-            "Kernform",
-            "cognitive-miniworld",
-            "gordian",
             "FabricO11y",
+            "Nomos",
+            "Metron",
+            "splunk-dashboard-studio-python",
         ):
-            self.assertNotIn(f"github.com/kmosoti/{repository}", self.readme)
-
-    def test_learning_os_appears_only_in_later(self) -> None:
-        occurrences = [
-            line for line in self.readme.splitlines() if "learning-os" in line
-        ]
-        self.assertEqual(len(occurrences), 1)
-        self.assertTrue(occurrences[0].startswith("- **Later:**"))
+            url = f"https://github.com/kmosoti/{repository}"
+            self.assertEqual(self.readme.count(f"]({url})"), 1)
 
     def test_retired_profile_material_does_not_return(self) -> None:
         lowered = self.readme.lower()
-        for forbidden in ("3,000", "3000", "splunk roles", "skill badge", "trophy"):
+        for forbidden in (
+            "3,000",
+            "3000",
+            "splunk roles",
+            "skill badge",
+            "trophy",
+            "blackcell",
+            "kernform",
+            "viabilitygrid",
+            "cognitive-miniworld",
+            "gordian",
+            "learning-os",
+            "project-field",
+        ):
             self.assertNotIn(forbidden, lowered)
 
 

@@ -19,16 +19,6 @@ MANIFEST = ROOT / "profile.toml"
 README = ROOT / "README.md"
 HERO = ROOT / "assets" / "profile-hero.svg"
 HERO_NARROW = ROOT / "assets" / "profile-hero-narrow.svg"
-FIELD = ROOT / "assets" / "project-field.svg"
-FIELD_NARROW = ROOT / "assets" / "project-field-narrow.svg"
-
-EXPECTED_PROJECTS = [
-    "BlackCell",
-    "Kernform",
-    "ViabilityGrid / cognitive-miniworld",
-    "Gordian",
-    "FabricO11y",
-]
 
 PALETTE = {
     "background": "#0a0b0d",
@@ -52,17 +42,15 @@ MARKER = re.compile(
 
 @dataclass(frozen=True)
 class Project:
-    id: str
     name: str
-    capability: str
+    url: str
+    summary: str
 
 
 @dataclass(frozen=True)
 class Profile:
     identity: dict[str, str]
-    workbench: dict[str, str]
     projects: tuple[Project, ...]
-    roadmap: dict[str, str]
     links: dict[str, str]
 
 
@@ -104,18 +92,12 @@ def load_profile(path: Path = MANIFEST, root: Path = ROOT) -> Profile:
     _exact_keys(
         "profile.toml",
         raw,
-        {"schema_version", "identity", "workbench", "projects", "roadmap", "links"},
+        {"schema_version", "identity", "projects", "links"},
     )
-    if raw["schema_version"] != 1:
-        raise ValueError("schema_version must be 1")
+    if raw["schema_version"] != 2:
+        raise ValueError("schema_version must be 2")
 
     identity = _string_table("identity", raw["identity"], {"name", "role", "thesis"})
-    workbench = _string_table("workbench", raw["workbench"], {"title", "subtitle"})
-    roadmap = _string_table(
-        "roadmap",
-        raw["roadmap"],
-        {"now", "next", "later", "paused_name", "paused_url"},
-    )
     links = _string_table(
         "links",
         raw["links"],
@@ -134,21 +116,21 @@ def load_profile(path: Path = MANIFEST, root: Path = ROOT) -> Profile:
     project_rows = raw["projects"]
     if not isinstance(project_rows, list):
         raise TypeError("projects must be an array of tables")
+    if not project_rows:
+        raise ValueError("projects must contain at least one project")
     projects: list[Project] = []
     for index, row in enumerate(project_rows):
-        values = _string_table(f"projects[{index}]", row, {"id", "name", "capability"})
+        key = f"projects[{index}]"
+        values = _string_table(key, row, {"name", "url", "summary"})
+        _https_url(f"{key}.url", values["url"])
         projects.append(Project(**values))
 
-    names = [project.name for project in projects]
-    if names != EXPECTED_PROJECTS:
-        raise ValueError("projects must appear in the documented five-project order")
-    ids = [project.id for project in projects]
-    if len(ids) != len(set(ids)):
-        raise ValueError("project ids must be unique")
+    urls = {project.url.casefold().rstrip("/") for project in projects}
+    if len(urls) != len(projects):
+        raise ValueError("project URLs must be unique")
 
     for key in ("website_url", "source_url"):
         _https_url(f"links.{key}", links[key])
-    _https_url("roadmap.paused_url", roadmap["paused_url"])
     if not re.fullmatch(r"[^@\s]+@[^@\s]+\.[^@\s]+", links["email_address"]):
         raise ValueError("links.email_address is invalid")
 
@@ -158,7 +140,7 @@ def load_profile(path: Path = MANIFEST, root: Path = ROOT) -> Profile:
             "links.resume_path must name a file inside the profile repository"
         )
 
-    return Profile(identity, workbench, tuple(projects), roadmap, links)
+    return Profile(identity, tuple(projects), links)
 
 
 def _xml(value: str) -> str:
@@ -232,99 +214,11 @@ def render_hero_narrow(profile: Profile) -> str:
 '''
 
 
-def _node(project: Project, x: int, y: int) -> str:
-    p = PALETTE
-    name_lines = project.name.split(" / ", maxsplit=1)
-    if len(name_lines) == 2:
-        title = (
-            f'<text x="{x + 24}" y="{y + 37}" fill="{p["text"]}" font-family="{MONO}" '
-            f'font-size="18" font-weight="700">{_xml(name_lines[0])}</text>'
-            f'<text x="{x + 24}" y="{y + 60}" fill="{p["text"]}" font-family="{MONO}" '
-            f'font-size="15">/ {_xml(name_lines[1])}</text>'
-            f'<text x="{x + 24}" y="{y + 86}" fill="{p["amber"]}" font-family="{MONO}" '
-            f'font-size="13" letter-spacing="1">{_xml(project.capability.upper())}</text>'
-        )
-    else:
-        title = (
-            f'<text x="{x + 24}" y="{y + 43}" fill="{p["text"]}" font-family="{MONO}" '
-            f'font-size="20" font-weight="700">{_xml(project.name)}</text>'
-            f'<text x="{x + 24}" y="{y + 75}" fill="{p["amber"]}" font-family="{MONO}" '
-            f'font-size="13" letter-spacing="1">{_xml(project.capability.upper())}</text>'
-        )
-    return (
-        f'<g><rect x="{x}" y="{y}" width="320" height="104" rx="8" '
-        f'fill="{p["surface"]}" stroke="{p["border"]}"/>{title}</g>'
-    )
-
-
-def render_field(profile: Profile) -> str:
-    p = PALETTE
-    positions = [(40, 228), (440, 40), (140, 490), (840, 228), (740, 490)]
-    nodes = "\n  ".join(
-        _node(project, x, y)
-        for project, (x, y) in zip(profile.projects, positions, strict=True)
-    )
-    title = _xml(profile.workbench["title"])
-    subtitle = _xml(profile.workbench["subtitle"])
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" role="img" aria-labelledby="title description">
-  <title id="title">Five-project development workbench capability field</title>
-  <desc id="description">Five independent projects grouped around a shared development workbench without dependency arrows.</desc>
-  <rect width="1200" height="640" rx="14" fill="{p["background"]}"/>
-  <rect x="1" y="1" width="1198" height="638" rx="13" fill="none" stroke="{p["border"]}" stroke-width="2"/>
-  <g stroke="{p["border"]}" stroke-width="1.5" opacity=".9">
-    <line x1="440" y1="302" x2="360" y2="280"/>
-    <line x1="600" y1="250" x2="600" y2="144"/>
-    <line x1="520" y1="370" x2="376" y2="490"/>
-    <line x1="760" y1="302" x2="840" y2="280"/>
-    <line x1="680" y1="370" x2="824" y2="490"/>
-  </g>
-  <g>
-    <rect x="440" y="250" width="320" height="120" rx="10" fill="{p["surface"]}" stroke="{p["ember"]}" stroke-width="1.5"/>
-    <text x="600" y="303" text-anchor="middle" fill="{p["text"]}" font-family="{MONO}" font-size="22" font-weight="700">{title}</text>
-    <text x="600" y="335" text-anchor="middle" fill="{p["ember"]}" font-family="{MONO}" font-size="14" letter-spacing="1.5">{subtitle}</text>
-  </g>
-  {nodes}
-  <text x="34" y="34" fill="{p["muted"]}" font-family="{MONO}" font-size="13">capability field / independent experiments / no maturity claims</text>
-</svg>
-'''
-
-
-def render_field_narrow(profile: Profile) -> str:
-    p = PALETTE
-    center_title = _xml(profile.workbench["title"])
-    center_subtitle = _xml(profile.workbench["subtitle"])
-    node_y = [230, 390, 550, 710, 870]
-    nodes = "\n  ".join(
-        _node(project, 60, y)
-        for project, y in zip(profile.projects, node_y, strict=True)
-    ).replace('width="320"', 'width="520"')
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 1020" role="img" aria-labelledby="title description">
-  <title id="title">Five-project development workbench capability field</title>
-  <desc id="description">Five independent projects listed around a shared development workbench without dependency arrows or ordering.</desc>
-  <rect width="640" height="1020" rx="14" fill="{p["background"]}"/>
-  <rect x="1" y="1" width="638" height="1018" rx="13" fill="none" stroke="{p["border"]}" stroke-width="2"/>
-  <text x="30" y="34" fill="{p["muted"]}" font-family="{MONO}" font-size="13">capability field / independent experiments / no dependency order</text>
-  <g>
-    <rect x="60" y="65" width="520" height="120" rx="10" fill="{p["surface"]}" stroke="{p["ember"]}" stroke-width="1.5"/>
-    <text x="320" y="118" text-anchor="middle" fill="{p["text"]}" font-family="{MONO}" font-size="22" font-weight="700">{center_title}</text>
-    <text x="320" y="150" text-anchor="middle" fill="{p["ember"]}" font-family="{MONO}" font-size="14" letter-spacing="1.5">{center_subtitle}</text>
-  </g>
-  {nodes}
-</svg>
-'''
-
-
 def render_blocks(profile: Profile) -> dict[str, str]:
-    roadmap = profile.roadmap
-    roadmap_rows = [
-        f"- **Now:** {_md(roadmap['now'])}",
-        f"- **Next:** {_md(roadmap['next'])}",
-        (
-            f"- **Later:** {_md(roadmap['later'])} "
-            f"[{_md(roadmap['paused_name'])}]({roadmap['paused_url']})."
-        ),
+    project_rows = [
+        f"- [{_md(project.name)}]({project.url}) — {_md(project.summary)}"
+        for project in profile.projects
     ]
-
     links = profile.links
     link_rows = [
         f"- Website: [{_md(links['website_label'])}]({links['website_url']})",
@@ -333,7 +227,7 @@ def render_blocks(profile: Profile) -> dict[str, str]:
         f"- [{_md(links['email_label'])}](mailto:{links['email_address']})",
     ]
     return {
-        "roadmap": "\n".join(roadmap_rows),
+        "projects": "\n".join(project_rows),
         "links": "\n".join(link_rows),
     }
 
@@ -365,8 +259,6 @@ def render_all(profile: Profile, readme: str) -> dict[Path, str]:
         README: updated,
         HERO: render_hero(profile),
         HERO_NARROW: render_hero_narrow(profile),
-        FIELD: render_field(profile),
-        FIELD_NARROW: render_field_narrow(profile),
     }
 
 
@@ -394,8 +286,6 @@ def main(argv: list[str] | None = None) -> int:
         outputs = render_all(profile, README.read_text(encoding="utf-8"))
         validate_svg(outputs[HERO])
         validate_svg(outputs[HERO_NARROW])
-        validate_svg(outputs[FIELD])
-        validate_svg(outputs[FIELD_NARROW])
     except (
         OSError,
         TypeError,

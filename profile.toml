@@ -1,45 +1,29 @@
-schema_version = 1
+schema_version = 2
 
 [identity]
 name = "Kennedy Mosoti"
 role = "Observability platform engineer"
 thesis = "Build the tools. Test the assumptions. Make the evidence visible."
 
-[workbench]
-title = "Development workbench"
-subtitle = "experiment · test · deploy"
-
 [[projects]]
-id = "blackcell"
-name = "BlackCell"
-capability = "controlled execution"
-
-[[projects]]
-id = "kernform"
-name = "Kernform"
-capability = "repository intent"
-
-[[projects]]
-id = "cognitive-miniworld"
-name = "ViabilityGrid / cognitive-miniworld"
-capability = "deterministic experiments"
-
-[[projects]]
-id = "gordian"
-name = "Gordian"
-capability = "coordination"
-
-[[projects]]
-id = "fabrico11y"
 name = "FabricO11y"
-capability = "evidence and provenance"
+url = "https://github.com/kmosoti/FabricO11y"
+summary = "Rust tooling for collecting and querying Linux host, agent, and OpenTelemetry data."
 
-[roadmap]
-now = "Keep building and testing each project on its own."
-next = "See which pieces are worth connecting."
-later = "Use the pieces that hold up to revisit paused ideas, including"
-paused_name = "learning-os"
-paused_url = "https://github.com/kmosoti/learning-os"
+[[projects]]
+name = "Nomos"
+url = "https://github.com/kmosoti/Nomos"
+summary = "A Rust Linux agent that reconciles host state with declared configuration and verifies the result."
+
+[[projects]]
+name = "Metron"
+url = "https://github.com/kmosoti/Metron"
+summary = "An experimental Rust runtime and harness for reproducible agent experiments and deterministic replay."
+
+[[projects]]
+name = "Splunk Dashboard Studio Python"
+url = "https://github.com/kmosoti/splunk-dashboard-studio-python"
+summary = "Python tooling to generate reproducible Splunk Dashboard Studio definitions and check compatibility."
 
 [links]
 website_label = "kennedy.mosoti.dev"
